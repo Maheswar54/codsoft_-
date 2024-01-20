@@ -1,0 +1,60 @@
+package codes;
+import java.util.*;
+class UsersBank{
+	 double amount;
+	public  void checkBalance() {
+		System.out.println("Your Bank Balance:"+amount);
+	}
+	public void deposit(double balance) {
+		amount+=balance;
+		System.out.println(" Success fully Money Deposited into your acccount");
+	}
+	public void withdraw(double balance) {
+		if(balance<=amount) {
+			System.out.println("Money"+balance+"Successfully with drawn from your account");
+			System.out.println("Remainig balance in your account"+(amount-balance));
+		}else {
+			System.out.println("insufficent amount");
+			
+		}
+		
+		
+	}
+	
+}
+
+public class ATM extends UsersBank{
+
+	public static void main(String[] args) {
+		ATM obj=new ATM();
+		// TODO Auto-generated method stub
+		boolean value=true;
+		while(value) {
+		System.out.println("Select Your choice:");
+		Scanner sc=new Scanner(System.in);
+		System.out.println(" 1.Withdraw   2. Deposit   3.CheckBankbalance");
+		int ch=sc.nextInt();
+		switch(ch) {
+		case 1: System.out.println("Enter Amount:"); 
+		         double amount=sc.nextDouble();
+			             obj.withdraw(amount);
+			             break;
+		case 2: System.out.println("Enter Amount:"); 
+		     double amount1=sc.nextDouble();
+	              obj.deposit(amount1);
+	               break;
+		case 3: obj.checkBalance();
+	                break;
+		}
+		System.out.println("press 1 key to exit  or 2 to continue");
+		int num=sc.nextInt();
+		if(num==1) {
+			System.exit(0);
+		}else
+		value=false;
+   
+	}
+		
+	}
+
+}
